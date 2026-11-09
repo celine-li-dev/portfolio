@@ -1,0 +1,71 @@
+/* Page « Activités » (activites.html) : carrousel de photos. */
+
+/* Images */
+
+.about-layout.reverse {
+    grid-template-columns: 1.2fr .8fr;
+}
+
+/* Mobiles */
+
+@media (max-width: 700px) {
+    .about-layout.reverse {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Carrousel */
+
+.carousel-frame {
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    border-radius: 9px;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track img {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: #fffaf7e6;
+    color: var(--wine);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.carousel-btn:hover {
+    background: var(--wine);
+    color: white;
+}
+
+.carousel-btn[hidden] {
+    display: none;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
