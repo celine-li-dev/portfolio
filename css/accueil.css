@@ -181,19 +181,16 @@
 @media (max-width: 700px) {
     .hero {
         grid-template-columns: 1fr;
-        min-height: 0;
-        padding: 20px 3% 45px;
+        padding: 25px 3% 45px;
     }
 
     .portrait-wrap {
         grid-row: 1;
-        height: 300px;
-        margin-bottom: 10px;
+        height: 255px;
     }
 
     .desk-photo img {
-        width: 230px;
-        height: 230px;
+        width: 250px;
     }
 
     .orbit-a {
@@ -206,48 +203,11 @@
         height: 200px;
     }
 
-    .sparkle {
-        left: 6%;
-        top: 8%;
-    }
-
-    .sticker {
-        right: 0;
-        top: 10%;
-        font-size: 9px;
-        padding: 8px 11px;
-    }
-
-    /* La pastille passe sous le chat pour ne plus le recouvrir */
-    .status {
-        right: auto;
-        left: 50%;
-        bottom: 6px;
-        transform: translateX(-50%);
-        white-space: nowrap;
-        font-size: 11px;
-    }
-
-    .hero-index {
-        right: 5%;
-        bottom: 12px;
-    }
-
-    .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
     .project-grid {
         grid-template-columns: 1fr;
     }
 
     .project-grid .project-art {
         height: 190px;
-    }
-
-    .project-meta {
-        flex-wrap: wrap;
     }
 }
