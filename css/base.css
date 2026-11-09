@@ -8,7 +8,7 @@
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans); }
+body { margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans); font-variant-emoji:text; }
 a { color:inherit; text-decoration:none; }
 button { font:inherit; }
 .layout { max-width:1600px; margin:auto; }
@@ -46,6 +46,17 @@ main { margin-left:258px; padding:18px 30px 0 0; }
 .topbar nav a { font-size:12px; color:#725c5d; padding:9px 10px; border-radius:25px; }
 .topbar nav a:hover,.topbar nav a.active { background:var(--wine); color:white; }
 .contact-link { border:1px solid var(--line); border-radius:25px; padding:9px 12px; font-size:11px; color:var(--wine); }
+
+/* Bouton burger (caché sur ordinateur, affiché sur mobile) */
+.burger {
+    display:none; width:44px; height:44px; padding:0; border:1px solid var(--line);
+    border-radius:50%; background:none; cursor:pointer;
+    flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.burger span { display:block; width:18px; height:2px; background:var(--wine); border-radius:2px; transition:transform .2s, opacity .2s; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
 /* Titres et boutons */
 .eyebrow { font:9px var(--mono); letter-spacing:.09em; color:var(--muted); margin:0 0 13px; }
@@ -100,7 +111,10 @@ main { margin-left:258px; padding:18px 30px 0 0; }
 .contact-buttons { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
 
 /* Footer */
-footer { display:flex; justify-content:space-between; gap:15px; padding:19px 2%; font:8px var(--mono); color:var(--muted); border-top:1px solid var(--line); }
+footer { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px 18px; padding:22px 2%; font:10px/1.6 var(--mono); color:var(--muted); border-top:1px solid var(--line); }
+.footer-info,.footer-links { display:flex; flex-wrap:wrap; gap:4px 16px; }
+.footer-name { font:600 18px var(--serif); color:var(--wine); }
+footer a:hover { color:var(--wine); }
 
 /* Images */
 .project-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
@@ -115,27 +129,22 @@ footer { display:flex; justify-content:space-between; gap:15px; padding:19px 2%;
 
 /* Mobiles */
 @media (max-width:700px) {
-    /* L'explorateur (style éditeur de code) est masqué : le logo est déjà dans la barre du haut */
+    /* Un seul en-tête : l'explorateur est caché, le menu devient un burger */
     .explorer { display:none; }
-    main { margin:0; padding:0 12px; }
+    main { margin:0; padding:10px 10px 0; }
 
-    /* Barre du haut : logo + bouton contact sur la 1re ligne, menu défilant sur la 2e */
-    .topbar {
-        height:auto; flex-wrap:wrap; align-items:center; gap:6px 10px;
-        top:8px; margin-top:12px; padding:9px 12px 6px;
-    }
-    .brand { display:block; font-size:28px; line-height:1; order:1; }
-    .contact-link { order:2; margin-left:auto; font-size:11px; padding:9px 14px; white-space:nowrap; }
-    .topbar nav {
-        order:3; flex:0 0 100%; min-width:0; gap:4px; justify-content:flex-start;
-        overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch;
-        padding-bottom:4px;
-    }
-    .topbar nav::-webkit-scrollbar { display:none; }
-    .topbar nav a { font-size:12px; padding:9px 13px; white-space:nowrap; flex:0 0 auto; }
+    .topbar { height:auto; min-height:58px; top:8px; padding:7px 7px 7px 16px; flex-wrap:wrap; }
+    .brand { display:block; flex:1; font-size:30px; }
+    .burger { display:flex; }
 
-    .hero h1 { font-size:clamp(36px,10vw,54px); }
-    .intro { font-size:13px; }
+    /* Menu et « Me contacter » cachés tant que le burger n'est pas ouvert */
+    .topbar.has-menu nav,.topbar.has-menu .contact-link { display:none; }
+    .topbar.has-menu.open nav { display:flex; flex-direction:column; gap:4px; flex:0 0 100%; width:100%; order:3; padding:10px 0 4px; }
+    .topbar.has-menu.open nav a { font-size:15px; padding:13px 16px; }
+    .topbar.has-menu.open .contact-link { display:block; width:100%; order:4; margin-top:4px; padding:13px; text-align:center; font-size:14px; }
+
+    .hero h1 { font-size:clamp(38px,10vw,54px); }
+    .intro { font-size:12px; }
     .project-art { height:190px; }
     .quick-about { grid-template-columns:1fr; gap:8px; }
     .quick-about .actions { margin-top:0; }
@@ -144,295 +153,20 @@ footer { display:flex; justify-content:space-between; gap:15px; padding:19px 2%;
     .about-layout { grid-template-columns:1fr; gap:18px; }
     .contact-panel { padding:24px; }
     .contact-panel h2 { font-size:28px; }
-    .btn { padding:13px 18px; font-size:12px; }
-    footer { flex-wrap:wrap; font-size:8px; }
+
+    /* Photos (À propos, Activités) : moins grandes, centrées */
+    .about-photo-note { width:min(100%,320px); margin-inline:auto; }
+    .about-photo-note img { max-height:380px; }
+    .carousel-track { align-items:flex-start; }
+    .carousel-track img { aspect-ratio:4/5; height:auto; object-fit:cover; }
+
+    /* Footer en colonne */
+    footer { flex-direction:column; align-items:flex-start; gap:12px; padding:24px 4px max(28px,env(safe-area-inset-bottom)); font-size:11px; }
+    .footer-info,.footer-links { flex-direction:column; gap:8px; }
+    footer a { display:inline-block; padding:4px 0; }
 }
 
 /* Accessibilité */
 @media (prefers-reduced-motion:reduce) {
     * { scroll-behavior:auto !important; transition:none !important; animation:none !important; }
-}
-
-
-/* =====================================
-   RESPONSIVE MOBILE - PORTFOLIO
-===================================== */
-
-@media screen and (max-width: 700px) {
-
-    /* Structure générale */
-
-    html, body {
-        width: 100%;
-        overflow-x: hidden;
-    }
-
-    .layout {
-        width: 100%;
-        overflow-x: clip;
-    }
-
-    main {
-        width: 100%;
-        margin: 0;
-        padding: 0 12px;
-        min-width: 0;
-    }
-
-    /* Explorateur */
-
-    .explorer {
-        display: none;
-    }
-
-    /* Barre de navigation */
-
-    .topbar {
-        position: sticky;
-        top: 5px;
-        z-index: 100;
-        width: 100%;
-        min-height: 58px;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 8px 15px;
-        border-radius: 12px;
-    }
-
-    .brand {
-        display: block;
-        font-size: 27px;
-    }
-
-    /* Bouton burger */
-
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        width: 40px;
-        height: 40px;
-        padding: 8px;
-        border: 1px solid var(--line);
-        border-radius: 9px;
-        background: var(--paper);
-        cursor: pointer;
-        order: 3;
-    }
-
-    .burger-menu span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: var(--wine);
-        border-radius: 5px;
-        transition: .2s;
-    }
-
-    .burger-menu[aria-expanded="true"] span:first-child {
-        transform: translateY(7px) rotate(45deg);
-    }
-
-    .burger-menu[aria-expanded="true"] span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger-menu[aria-expanded="true"] span:last-child {
-        transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Menu déroulant */
-
-    .topbar nav {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        right: 0;
-        width: 100%;
-        flex-direction: column;
-        gap: 5px;
-        padding: 12px;
-        background: var(--paper);
-        border: 1px solid var(--line);
-        border-radius: 13px;
-        box-shadow: 0 10px 25px #70464a18;
-    }
-
-    .topbar nav.menu-open {
-        display: flex;
-    }
-
-    .topbar nav a {
-        display: block;
-        width: 100%;
-        padding: 12px;
-        font-size: 13px;
-        border-radius: 8px;
-    }
-
-    .contact-link {
-        margin-left: auto;
-        margin-right: 10px;
-        font-size: 10px;
-        white-space: nowrap;
-    }
-
-    /* Titres */
-
-    .page-hero {
-        padding: 40px 3% 20px;
-    }
-
-    .page-hero h1,
-    .hero h1 {
-        font-size: clamp(34px, 9vw, 48px);
-        overflow-wrap: break-word;
-    }
-
-    .intro {
-        font-size: 13px;
-        line-height: 1.8;
-    }
-
-    /* Sections */
-
-    .about-layout,
-    .about-layout.reverse {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 22px;
-        margin: 25px 2% 45px;
-    }
-
-    .about-copy {
-        min-width: 0;
-    }
-
-    .about-copy h2 {
-        font-size: 29px;
-    }
-
-    .about-copy p {
-        font-size: 13px;
-    }
-
-    /* Images générales */
-
-    img {
-        max-width: 100%;
-    }
-
-    .about-photo-note {
-        width: 100%;
-        min-width: 0;
-        padding: 10px;
-        overflow: hidden;
-    }
-
-    .about-photo-note > img {
-        width: 100%;
-        height: auto;
-        max-height: 380px;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
-        border-radius: 9px;
-    }
-
-    /* Décorations inutiles sur téléphone */
-
-    .sparkle,
-    .hero-index,
-    .handwritten span {
-        display: none;
-    }
-
-    /* Blocs */
-
-    .quick-about {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 15px;
-    }
-
-    .contact-panel {
-        padding: 22px;
-    }
-
-    .contact-panel h2 {
-        font-size: 26px;
-    }
-
-    /* Boutons */
-
-    .actions {
-        gap: 9px;
-    }
-
-    .btn {
-        max-width: 100%;
-        white-space: normal;
-        justify-content: center;
-        text-align: center;
-    }
-
-    /* Footer */
-
-    footer {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 13px;
-        padding: 25px 12px;
-        font-size: 9px;
-    }
-
-    footer span,
-    footer a {
-        max-width: 100%;
-        overflow-wrap: anywhere;
-    }
-
-    .footer-info,
-    .footer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-}
-
-/* Très petits téléphones */
-
-@media screen and (max-width: 380px) {
-
-    main {
-        padding: 0 8px;
-    }
-
-    .topbar {
-        padding: 7px 9px;
-    }
-
-    .contact-link {
-        font-size: 9px;
-        padding: 7px;
-    }
-
-    .page-hero h1,
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .btn {
-        font-size: 10px;
-        padding: 11px 13px;
-    }
-
-}
-.burger-menu {
-    display: none;
 }
