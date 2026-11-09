@@ -175,6 +175,27 @@
     text-align: center;
     margin-top: 22px;
 }
+/* Tablettes */
+
+@media (max-width: 1050px) {
+    .hero {
+        overflow-x: clip;
+    }
+
+    .desk-photo img {
+        width: 290px;
+    }
+
+    .orbit-a {
+        width: 250px;
+        height: 285px;
+    }
+
+    .orbit-b {
+        width: 285px;
+        height: 225px;
+    }
+}
 
 /* Mobiles */
 
