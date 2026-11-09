@@ -46,7 +46,7 @@ document.querySelectorAll('.topbar nav a').forEach((link) => {
   burger.addEventListener('click', () => setMenu(!topbar.classList.contains('open')));
   topbar.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
-  window.matchMedia('(min-width: 701px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+  window.matchMedia('(min-width: 901px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 })();
 
 // Retire les flèches (qui deviennent des emoji sur iPhone) et remplace les autres symboles.
