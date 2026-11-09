@@ -1,78 +1,185 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Bientôt disponible</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 600px;
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
-        }
-        .badge {
-            display: inline-block;
-            background: #3b82f6;
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-        p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .loader {
-            width: 48px;
-            height: 48px;
-            border: 5px solid #334155;
-            border-bottom-color: #3b82f6;
-            border-radius: 50%;
-            display: inline-block;
-            animation: rotation 1s linear infinite;
-        }
-        @keyframes rotation {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Céline Li, étudiante en BUT MMI : projets de design, d'audiovisuel et de développement web.">
+  <title>Accueil — Céline Li</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/accueil.css">
+  <script src="js/base.js" defer></script>
 </head>
-<body>
-    <div class="container">
-        <div class="badge">En cours de création</div>
-        <h1>Mon Portfolio arrive très bientôt !</h1>
-        <p>Je finalise actuellement la mise en page et mes projets. Le site complet sera disponible dans quelques jours.</p>
-        <div class="loader"></div>
+
+<body data-page="index">
+<div class="layout">
+
+<aside class="explorer">
+  <a class="monogram" href="index.html">C<span>.</span></a>
+  <p class="explorer-label">EXPLORATEUR</p>
+  <a class="tree-link" href="index.html">⌂ &nbsp; celine-portfolio</a>
+
+  <div class="tree-group">
+    <button class="tree-toggle" aria-expanded="true">⌄ &nbsp; ▰ pages/</button>
+    <div class="tree-children">
+      <a href="index.html">⌂ &nbsp; accueil.html</a>
+      <a href="apropos.html">▤ &nbsp; a-propos.html</a>
+      <a href="projets.html">◇ &nbsp; projets.html</a>
+      <a href="competences.html">⌘ &nbsp; competences.html</a>
+      <a href="formation.html">▤ &nbsp; formation.html</a>
+      <a href="contact.html">✉ &nbsp; contact.html</a>
+      <a href="activites.html">✦ &nbsp; activites.html</a>
     </div>
+  </div>
+
+  <div class="tree-group">
+    <button class="tree-toggle" aria-expanded="true">⌄ &nbsp; ▰ projects/</button>
+    <div class="tree-children">
+      <a href="projets/marshello.html">↳ marshello.html</a>
+      <a href="projets/urban-move.html">↳ urban-move.html</a>
+      <a href="projets/2060.html">↳ 2060.html</a>
+      <a href="projets/aux-petits-sushi.html">↳ aux-petits-sushi.html</a>
+    </div>
+  </div>
+
+  <div class="terminal">
+    <span>TERMINAL</span>
+    <p><b>celine@portfolio</b>:~$</p>
+    <p>Bienvenue dans mon univers.</p>
+    <i>▍</i>
+  </div>
+</aside>
+
+<main>
+
+<header class="topbar">
+  <a class="brand" href="index.html">C<span>.</span></a>
+
+  <nav aria-label="Navigation principale">
+    <a href="index.html" data-page="index">Accueil</a>
+    <a href="apropos.html" data-page="apropos">À propos</a>
+    <a href="projets.html" data-page="projets">Projets</a>
+    <a href="competences.html" data-page="competences">Compétences</a>
+    <a href="formation.html" data-page="formation">Formation</a>
+    <a href="activites.html" data-page="activites">Activités</a>
+  </nav>
+
+  <a class="contact-link" href="contact.html">Me contacter ↗</a>
+</header>
+
+<section class="hero">
+
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="dot"></span> ÉTUDIANTE EN BUT MMI · 2025—2028</p>
+
+    <h1>Étudiante en BUT MMI<br><em>passionnée par le web.</em></h1>
+
+    <p class="intro">
+      Je m'appelle Céline Li, je transforme mes idées visuelles sur Figma en projets concrétisés par le code.
+    </p>
+
+    <div class="actions">
+      <a class="btn dark" href="projets.html">Découvrir mes projets ↗</a>
+      <a class="btn outline" href="apropos.html">Qui suis-je ?</a>
+      <a class="btn outline" href="docs/cv.pdf" download>Télécharger mon CV ↓</a>
+    </div>
+
+    <p class="handwritten">Créative & Curieuse <span>✳</span></p>
+  </div>
+
+  <div class="portrait-wrap">
+    <div class="orbit orbit-a"></div>
+    <div class="orbit orbit-b"></div>
+
+    <div class="desk-photo">
+      <img src="img/accueil/chat.png" alt="Un chaton noir assis, les yeux grands ouverts">
+    </div>
+
+    <span class="sticker">&lt;creative /&gt;</span>
+    <span class="sparkle">✦</span>
+    <div class="status"><span class="dot"></span> actuellement en train de créer</div>
+  </div>
+
+  <span class="hero-index">01 — PORTFOLIO</span>
+</section>
+
+<section class="preview-section">
+
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">UN APERÇU DE MON UNIVERS</p>
+      <h2>Quelques projets <em>choisis.</em></h2>
+    </div>
+    <a class="text-link" href="projets.html">Tous les projets ↗</a>
+  </div>
+
+  <div class="project-grid">
+
+    <article class="project-card">
+      <a class="project-art marshello" href="projets/marshello.html">
+        <img src="img/projets/marshello/affiche.png" alt="Affiche Marshello">
+        <span class="art-label">01 / DESIGN</span>
+      </a>
+      <div class="project-meta">
+        <div>
+          <h3>Affiche Marshello</h3>
+          <p>Création graphique · Photoshop</p>
+        </div>
+        <a class="discover" href="projets/marshello.html">Découvrir le projet ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <a class="project-art dance" href="projets/urban-move.html">
+        <img src="img/projets/urban-move/accueil-desktop.jpg" alt="Page d'accueil du site Urban Move Dance">
+        <span class="art-label">02 / WEB</span>
+      </a>
+      <div class="project-meta">
+        <div>
+          <h3>Urban Move Dance</h3>
+          <p>Site vitrine · WordPress</p>
+        </div>
+        <a class="discover" href="projets/urban-move.html">Découvrir le projet ↗</a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="center-link">
+    <a class="btn outline" href="projets.html">Explorer tous mes projets ↗</a>
+  </div>
+</section>
+
+<section class="quick-about">
+  <div>
+    <p class="eyebrow">ACTIVITÉS</p>
+    <h2>Entre deux cours,<br><em>il y a tout le reste.</em></h2>
+  </div>
+
+  <p>
+    La danse, les vlogs, les sorties entre amis : voici ce que je fais quand je ne suis pas en train de créer.
+  </p>
+
+  <a class="round-link" href="activites.html" aria-label="Découvrir mes activités">↗</a>
+</section>
+
+<footer>
+  <div class="footer-name">Céline Li.</div>
+  <div class="footer-info">
+    <span>© 2026 Céline Li</span>
+    <span>Portfolio · Étudiante MMI</span>
+  </div>
+  <div class="footer-links">
+    <a href="contact.html">Contact</a>
+<a href="https://www.linkedin.com/in/celine-li0107/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>    <a href="mentions-legales.html">Mentions légales</a>
+  </div>
+</footer>
+
+</main>
+</div>
 </body>
 </html>

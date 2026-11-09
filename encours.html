@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Un projet est actuellement en cours de production sur le portfolio de Céline Li.">
+  <title>Projet en cours — Céline Li</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body>
+<div class="layout">
+
+  <main>
+    <section class="coming-soon">
+      <div class="coming-stars" aria-hidden="true">
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+      </div>
+
+      <p class="eyebrow">NOUVEAU PROJET EN COURS</p>
+      <h1>Un peu de patience,<br><em>quelque chose se prépare...</em></h1>
+      <p>Cette page est actuellement en cours de production. Elle sera bientôt disponible.</p>
+
+      <div class="production-status">
+        <span class="status-dot"></span>
+        EN COURS DE PRODUCTION
+      </div>
+
+      <a class="btn dark" href="index.html">Retour à l'accueil ↗</a>
+    </section>
+
+    <footer>
+      <span>© 2026 CÉLINE LI</span>
+      <span>PORTFOLIO · ÉTUDIANTE MMI</span>
+      <a href="index.html">RETOUR À L'ACCUEIL ↑</a>
+    </footer>
+  </main>
+</div>
+
+<style>
+.layout {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.layout main {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.coming-soon {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 75vh;
+  padding: 100px 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.coming-soon h1 {
+  margin: 20px 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(35px, 5vw, 58px);
+  line-height: 1.2;
+}
+
+.coming-soon h1 em {
+  color: var(--rose, #a66b7b);
+}
+
+.coming-soon > p:not(.eyebrow) {
+  max-width: 480px;
+  color: var(--muted, #777);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.coming-stars span {
+  position: absolute;
+  color: #b98b99;
+  animation: twinkle 2s infinite alternate;
+}
+
+.coming-stars span:nth-child(1) {
+  top: 15%;
+  left: 18%;
+  font-size: 25px;
+}
+
+.coming-stars span:nth-child(2) {
+  top: 25%;
+  right: 20%;
+  font-size: 35px;
+}
+
+.coming-stars span:nth-child(3) {
+  bottom: 22%;
+  left: 25%;
+  font-size: 30px;
+}
+
+.coming-stars span:nth-child(4) {
+  bottom: 17%;
+  right: 18%;
+  font-size: 24px;
+}
+
+.coming-stars span:nth-child(5) {
+  top: 10%;
+  right: 40%;
+  font-size: 16px;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: .35;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.production-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 28px 0;
+  color: #956575;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b98b99;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coming-stars span,
+  .status-dot {
+    animation: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .coming-soon {
+    min-height: 70vh;
+    padding: 80px 6%;
+  }
+
+  .coming-soon h1 {
+    font-size: 35px;
+  }
+}
+</style>
+
+</body>
+</html>
