@@ -76,6 +76,7 @@ main { margin-left:258px; padding:18px 30px 0 0; }
 .text-link { font:11px var(--mono); color:var(--wine); text-decoration:underline; text-underline-offset:4px; }
 
 /* Visuels de projet */
+.bacterio { background:linear-gradient(135deg,#2c3a35,#7f9a8c 55%,#2c3a35); }
 .project-art { height:175px; border-radius:8px; display:grid; place-items:center; position:relative; overflow:hidden; }
 .project-art b { font:700 37px/.88 var(--serif); text-align:center; letter-spacing:-.04em; color:#f8eee9; }
 .project-art b i { font-size:.7em; color:#d8aaa6; }
