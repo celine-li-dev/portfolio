@@ -17,3 +17,10 @@ const currentPage = document.body.dataset.page;
 document.querySelectorAll('.topbar nav a').forEach((link) => {
   if (link.dataset.page === currentPage) link.classList.add('active');
 });
+
+// Mobile : le menu défile horizontalement, on amène l'onglet actif au centre.
+const activeLink = document.querySelector('.topbar nav a.active');
+if (activeLink) {
+  const nav = activeLink.parentElement;
+  nav.scrollLeft = activeLink.offsetLeft - (nav.clientWidth - activeLink.offsetWidth) / 2;
+}
