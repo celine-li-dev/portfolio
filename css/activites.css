@@ -12,8 +12,26 @@
     .about-layout.reverse {
         grid-template-columns: 1fr;
     }
-}
 
+    /* Le texte d'abord, puis les photos */
+    .about-layout .about-copy {
+        order: -1;
+    }
+
+    /* Photos en pleine largeur, cadre plus fin */
+    .about-layout .about-photo-note {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .about-layout .about-photo-note img {
+        max-height: 460px;
+    }
+
+    .about-layout .photo-caption {
+        padding: 8px 4px 2px;
+    }
+}
 /* Carrousel */
 
 .carousel-frame {
