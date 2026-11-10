@@ -206,8 +206,8 @@
     }
 
     .portrait-wrap {
-        grid-row: 1;
         height: 255px;
+        margin-top: 30px;
     }
 
     .desk-photo img {
