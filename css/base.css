@@ -190,7 +190,7 @@ footer a:hover { color:var(--wine); }
 }
 /* Logo à la place du « C. » */
 .monogram,.brand { font-size:0; color:transparent; background:url(../img/image_2026-11-11_004732672.png) no-repeat left center / contain; flex-shrink:0; }
-.monogram { display:block; width:36px; height:50px; }
+.monogram { display:block; width:26px; height:38px; }
 .brand { height:40px; }
 
 /* Explorateur : tout reste dans le cadre, même sur un petit écran */
@@ -200,7 +200,13 @@ footer a:hover { color:var(--wine); }
 .explorer-label { margin:20px 7px 8px; }
 .tree-link,.tree-children a,.tree-toggle { padding:7px; }
 .terminal { margin-top:auto; }
-@media (max-height:720px) { .explorer .terminal { display:none; } }
+@media (max-height:760px) {
+    .explorer { padding:14px 14px; }
+    .explorer-label { margin:12px 7px 4px; }
+    .tree-link,.tree-children a,.tree-toggle { padding:5px 7px; }
+    .terminal { padding:8px 10px; }
+    .terminal p { margin:4px 0; }
+}
 /* Curseur du terminal qui clignote */
 .terminal i { display:inline-block; animation:clignote 1s steps(1) infinite; }
 @keyframes clignote { 50% { opacity:0; } }
