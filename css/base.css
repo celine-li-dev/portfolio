@@ -190,5 +190,17 @@ footer a:hover { color:var(--wine); }
 }
 /* Logo à la place du « C. » */
 .monogram,.brand { font-size:0; color:transparent; background:url(../img/image_2026-11-11_004732672.png) no-repeat left center / contain; flex-shrink:0; }
-.monogram { display:block; width:52px; height:72px; }
-.brand { height:46px; }
+.monogram { display:block; width:36px; height:50px; }
+.brand { height:40px; }
+
+/* Explorateur : tout reste dans le cadre, même sur un petit écran */
+.explorer { overflow-y:auto; scrollbar-width:none; }
+.explorer::-webkit-scrollbar { display:none; }
+.explorer > * { flex-shrink:0; }
+.explorer-label { margin:20px 7px 8px; }
+.tree-link,.tree-children a,.tree-toggle { padding:7px; }
+.terminal { margin-top:auto; }
+@media (max-height:720px) { .explorer .terminal { display:none; } }
+/* Curseur du terminal qui clignote */
+.terminal i { display:inline-block; animation:clignote 1s steps(1) infinite; }
+@keyframes clignote { 50% { opacity:0; } }
