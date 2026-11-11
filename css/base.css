@@ -193,20 +193,12 @@ footer a:hover { color:var(--wine); }
 .monogram { display:block; width:26px; height:38px; }
 .brand { height:40px; }
 
-/* Explorateur : tout reste dans le cadre, même sur un petit écran */
+/* Explorateur : espacement normal ; le terminal se cache s'il n'y a plus la place (voir js/base.js) */
 .explorer { overflow-y:auto; scrollbar-width:none; }
 .explorer::-webkit-scrollbar { display:none; }
 .explorer > * { flex-shrink:0; }
-.explorer-label { margin:20px 7px 8px; }
-.tree-link,.tree-children a,.tree-toggle { padding:7px; }
 .terminal { margin-top:auto; }
-@media (max-height:760px) {
-    .explorer { padding:14px 14px; }
-    .explorer-label { margin:12px 7px 4px; }
-    .tree-link,.tree-children a,.tree-toggle { padding:5px 7px; }
-    .terminal { padding:8px 10px; }
-    .terminal p { margin:4px 0; }
-}
-/* Curseur du terminal qui clignote */
-.terminal i { display:inline-block; animation:clignote 1s steps(1) infinite; }
+
+/* Curseur du terminal qui clignote (même si les animations sont réduites : c'est un simple clignotement) */
+.terminal i { display:inline-block; animation:clignote 1s steps(1) infinite !important; }
 @keyframes clignote { 50% { opacity:0; } }
