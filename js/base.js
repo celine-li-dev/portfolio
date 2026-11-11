@@ -100,3 +100,17 @@ document.querySelectorAll('.topbar nav a').forEach((link) => {
     }));
   }).observe(document.body, { childList: true, subtree: true });
 })();
+// Explorateur : on cache le terminal quand les dossiers ouverts prennent toute la place.
+(() => {
+  const explorer = document.querySelector('.explorer');
+  const terminal = explorer && explorer.querySelector('.terminal');
+  if (!terminal) return;
+  const fit = () => {
+    terminal.style.display = '';
+    if (explorer.scrollHeight > explorer.clientHeight + 1) terminal.style.display = 'none';
+  };
+  explorer.querySelectorAll('.tree-toggle').forEach((b) => b.addEventListener('click', () => requestAnimationFrame(fit)));
+  window.addEventListener('resize', fit);
+  if (document.fonts) document.fonts.ready.then(fit);
+  fit();
+})();
