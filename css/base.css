@@ -274,3 +274,6 @@ footer { font-size:12px; }
 .eyebrow { display:none; }
 .project-row .eyebrow,.detail-info .eyebrow,.timeline-item .eyebrow { display:block; }
 .dot,.handwritten,.portrait-wrap .orbit,.sticker,.sparkle,.status,.hero-index,.art-label,.explorer .terminal { display:none !important; }
+
+/* Mobile : pas de chat sur l'accueil */
+@media (max-width:700px) { body .portrait-wrap { display:none; } }
