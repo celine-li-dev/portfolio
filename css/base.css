@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 /* STYLES COMMUNS : couleurs, polices, explorateur, navigation, boutons et footer */
 
 /* Variables et base */
@@ -248,3 +249,28 @@ footer a:hover { color:var(--wine); }
 [data-theme="dark"] .skill-detail div > p:last-child,[data-theme="dark"] .constellation-star span { color:#cbb7b7; }
 [data-theme="dark"] .detail-symbol.has-logo { background:#f4e9e6; border-color:var(--line); }
 [data-theme="dark"] .gallery img { background:#2b2226; }
+
+/* ===== VERSION ÉPURÉE ===== */
+/* Typographie : Cormorant Garamond (titres), Allura (sous-titres), DM Sans (textes) */
+:root { --serif:'Cormorant Garamond',serif; --script:'Allura',cursive; --sans:'DM Sans',sans-serif; --mono:'DM Sans',sans-serif; }
+body { font-family:var(--sans); }
+.hero h1,.page-hero h1 { font-family:var(--serif); font-weight:600; letter-spacing:-.01em; line-height:1; font-size:clamp(46px,5.6vw,76px); }
+.quick-about h2,.about-copy h2,.contact-panel h2,.project-row h2,body .skill-detail h2,.timeline-item h2 { font-family:var(--serif); font-weight:600; letter-spacing:0; }
+.about-copy h2,.contact-panel h2,.quick-about h2 { font-size:clamp(32px,3.4vw,44px); line-height:1.05; }
+.project-row h2 { font-size:32px; }
+/* Sous-titres : la 2e ligne des titres, en Allura */
+.hero h1 em,.page-hero h1 em,h2 em { font-family:var(--script); font-style:normal; font-weight:400; font-size:1.15em; letter-spacing:0; color:var(--rose); line-height:.9; }
+body .skill-detail div > p:first-child,body .constellation-star span { font-family:var(--sans); }
+.eyebrow { font-size:11px; letter-spacing:.06em; font-weight:600; }
+.tree-link,.tree-children a,.tree-toggle,.explorer-label { font-size:12px; }
+.text-link { font-size:13px; font-weight:500; }
+footer { font-size:12px; }
+.footer-name { font-family:var(--serif); font-weight:600; font-size:22px; }
+
+/* Barre du haut opaque : le texte ne passe plus derrière */
+.topbar { background:var(--paper); }
+
+/* Éléments décoratifs retirés */
+.eyebrow { display:none; }
+.project-row .eyebrow,.detail-info .eyebrow,.timeline-item .eyebrow { display:block; }
+.dot,.handwritten,.portrait-wrap .orbit,.sticker,.sparkle,.status,.hero-index,.art-label,.explorer .terminal { display:none !important; }
