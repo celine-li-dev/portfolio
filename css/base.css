@@ -277,3 +277,7 @@ footer { font-size:12px; }
 
 /* Mobile : pas de chat sur l'accueil */
 @media (max-width:700px) { body .portrait-wrap { display:none; } }
+
+/* Badge « Nouveau » sur le projet mis en avant */
+.art-label.badge { display:inline-block !important; z-index:1; background:var(--wine); color:#fff; font:600 11px var(--sans); letter-spacing:.02em; padding:6px 11px; }
+[data-theme="dark"] .art-label.badge { background:#a8646a; }
